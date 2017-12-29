@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project("Output")
+set(SOURCE main.cpp)
+enable_testing()
+add_executable(${PROJECT_NAME} ${SOURCE})
+add_test(NAME main COMMAND ${PROJECT_NAME})
