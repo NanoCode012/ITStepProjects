@@ -4,9 +4,13 @@
 
 using namespace std;
 
-int GetRandomNumber(int max){
+int GetRandomNumber(){
     srand(time(NULL));
-    return rand() % (max + 1);
+    return rand();
+}
+
+int GetRandomNumber(int max){
+    return GetRandomNumber() % (max + 1);
 }
 
 int GetRandomNumber(int min, int max){
