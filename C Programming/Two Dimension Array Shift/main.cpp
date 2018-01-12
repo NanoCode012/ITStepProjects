@@ -57,7 +57,7 @@ int main(){
     cin >> amount;
     switch(c)
     {
-        case 'u':
+        case 'w':
             ShiftVertical(false, amount, arr);
             break;
         case 's':
