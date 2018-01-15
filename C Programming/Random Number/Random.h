@@ -8,9 +8,11 @@ int GetRandomNumber(int seed = 1){
 }
 
 int GetRandomNumber(int max){
-    return GetRandomNumber(max) % (max + 1);
+    if (max <= 0) return -1;
+    else return GetRandomNumber(max) % (max + 1);
 }
 
 int GetRandomNumber(int min, int max){
-    return min + GetRandomNumber(max - min);
+    if (min < 0 || max <= 0) return -1;
+    else return min + GetRandomNumber(max - min);
 }
