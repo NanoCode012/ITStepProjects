@@ -1,15 +1,24 @@
 #include <stdlib.h>
 #include <time.h>
 
-int GetRandomNumber(int seed = 1){
-    if (seed == 0) seed = -1;
-    srand(seed * time(NULL));
+bool hasSetSeed = false;
+
+int SetSeed(){
+    srand(time(NULL));
+    return 0;
+}
+
+int GetRandomNumber(){
+    if (!hasSetSeed) {
+        SetSeed();
+        hasSetSeed = true;
+    }
     return rand();
 }
 
 int GetRandomNumber(int max){
     if (max <= 0) return -1;
-    else return GetRandomNumber(max) % (max + 1);
+    else return GetRandomNumber() % (max + 1);
 }
 
 int GetRandomNumber(int min, int max){
