@@ -2,7 +2,7 @@
 #include <time.h>
 
 int GetRandomNumber(int seed = 1){
-    if (seed == 0) seed = 1;
+    if (seed == 0) seed = -1;
     srand(seed * time(NULL));
     return rand();
 }
