@@ -17,8 +17,6 @@ int ShowName(char names[][10], int index){
     for (int i = 0; i < count; i++){
         cout << names[index][i];
     }
-    
-    cout << endl;
     return 0;
 }
 
@@ -45,9 +43,9 @@ int BubbleSort(int scores[][2]){
     bool hasSwapped;
     for (int i = 0; i < count; i++){
         hasSwapped = false;
-        for (int j = i+1; j < count; j++){
-            if (scores[i][0] < scores[j][0]) {
-                Swap(scores, i, j);
+        for (int j = 1; j < count; j++){
+            if (scores[j - 1][0] < scores[j][0]) {
+                Swap(scores, j - 1, j);
                 hasSwapped = true;
             }
         }
@@ -71,6 +69,7 @@ int ShowLeaderboard(int scores[][2], char names[][10], int numOfParticipants){
             tempRank = rank;
         }
         tempScore = scores[i][0];
+        cout << "\t" << scores[i][0] << endl;
     }
     return 0;
 }
@@ -124,7 +123,7 @@ int main(){
     */
 
     BubbleSort(scores);
-    cout << "Rank\tName" << endl;
+    cout << "Rank\tName\tScore" << endl;
     ShowLeaderboard(scores, names, numOfPeople);
 
 
