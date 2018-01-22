@@ -17,6 +17,17 @@ int Count(char list[]){
     return count;
 }
 
+int Count(int arr[]){
+    int count = 0;
+    while(true){
+        int temp = arr[count];
+        if (CheckValid(temp)) {
+            count++;
+        }else break;
+    }
+    return count;
+}
+
 int Count(char list[][10]){
     int count = 0;
     while(true){
