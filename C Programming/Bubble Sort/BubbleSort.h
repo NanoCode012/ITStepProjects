@@ -6,12 +6,11 @@ int swap(int arr[], int posA, int posB){
 }
 
 int BubbleSort(int arr[], int size, bool smallestToLargest = true){
-    int timesToRun = size;
     bool swapped;
     if (smallestToLargest){
-        while(timesToRun-- > 0){
+        for (int i = 0; i < size; i++){
             swapped = false;
-            for (int j = 1; j < size; j++){
+            for (int j = 1; j < size - i; j++){
                 if (arr[j] < arr[j - 1]) {
                     swap(arr, j - 1, j);
                     swapped = true;
@@ -20,9 +19,9 @@ int BubbleSort(int arr[], int size, bool smallestToLargest = true){
             if (!swapped) break;
         }
     }else{
-        while(timesToRun-- > 0){
+        for (int i = 0; i < size; i++){
             swapped = false;
-            for (int j = 1; j < size; j++){
+            for (int j = 1; j < size - i; j++){
                 if (arr[j] > arr[j - 1]) {
                     swap(arr, j - 1, j);
                     swapped = true;
