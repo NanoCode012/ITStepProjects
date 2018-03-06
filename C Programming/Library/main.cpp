@@ -12,17 +12,21 @@ void ShowLine(){
     cout << endl;
 }
 
-void SetAllToFalse(bool arr[], int length){
+void SetValuesToDefault(bool arr[], int length){
     for (int i = 0; i < length; i++) arr[i] = false;
+}
+void SetValuesToDefault(int arr[], int length){
+    for (int i = 0; i < length; i++) arr[i] = i;
 }
 
 int main(){
     int length = 5;
-    int opt, id;
-    string item;
+    int opt, id;//for general
+    string item;//for search
+    bool hasIDItems[length];//for search
+    int idArray[length];//for sort
 
     Book *books = new Book[length];
-    bool hasIDItems[length];
     LoadData(books);
 
     ShowLine();
@@ -31,15 +35,16 @@ int main(){
     while(true)
     {
         ShowLine();
-        cout << "Options: "      << endl
+        cout << "Options: "     << endl
              << "1. Print all"  << endl
              << "2. Edit"       << endl
              << "3. Search for "<< endl
-             << "4. Exit"       << endl;
+             << "4. Sort for"   << endl
+             << "5. Exit"       << endl;
 
         cout << "Please input option: ";
         cin >> opt;
-        if (opt == 4) break;
+        if (opt == 5) break;
         
         switch(opt)
         {
@@ -65,11 +70,10 @@ int main(){
                 cin >> id;
                 cout << "Please enter what you want to search: ";
                 cin >> item;
-                PrintHead();
 
-                SetAllToFalse(hasIDItems, length);
-                bool hasItem = SearchItem(books, hasIDItems, id, item, length);
-                if (hasItem)
+                SetValuesToDefault(hasIDItems, length);
+                PrintHead();
+                if (SearchItem(books, hasIDItems, id, item, length))
                 {
                     for (int i = 0; i < length; i++)
                     {
@@ -77,6 +81,19 @@ int main(){
                             PrintAtIndex(books, i + 1);
                         }
                     }
+                }
+                break;
+            case 4:
+                PrintHeadOptions();
+                cout << "Please enter which item you want to sort: ";
+                cin >> id;
+
+                SetValuesToDefault(idArray, length);
+                SortById(books, idArray, id, length);
+                PrintHead();
+                for (int i = 0; i < length; i++)
+                {
+                    PrintAtIndex(books, idArray[i] + 1);
                 }
                 break;
         }

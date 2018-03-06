@@ -44,6 +44,24 @@ void PrintHeadOptions(){
          << "3. Publisher"  << endl
          << "4. Genre"      << endl;
 }
+void EditItemAtID(Book *books, int indexOfBook, int indexOfItem, string itemToReplaceWith)
+{
+    switch(indexOfItem)
+    {
+        case 1:
+            books[indexOfBook].title = itemToReplaceWith;
+            break;
+        case 2:
+            books[indexOfBook].author = itemToReplaceWith;
+            break;
+        case 3:
+            books[indexOfBook].publisher = itemToReplaceWith;
+            break;
+        case 4:
+            books[indexOfBook].genre = itemToReplaceWith;
+            break;
+    }
+}
 
 int GetLength(string a){
     int i = 0;
@@ -168,26 +186,79 @@ bool SearchItem(Book *books, bool bookHasItem[], int itemID, string item, int le
     return hasItem;
 }
 
-void EditItemAtID(Book *books, int indexOfBook, int indexOfItem, string itemToReplaceWith)
-{
-    switch(indexOfItem)
+int Compare(string a, string b){
+    // a.compare(b); didn't realize they had this
+    int def = 0;
+    int length = a.length();
+    if (b.length() < length) {//the shorter one is the second
+        length = b.length();
+        def = 1;
+    }else if (b.length() > length)//the shorter one is the first
     {
-        case 1:
-            books[indexOfBook].title = itemToReplaceWith;
-            break;
-        case 2:
-            books[indexOfBook].author = itemToReplaceWith;
-            break;
-        case 3:
-            books[indexOfBook].publisher = itemToReplaceWith;
-            break;
-        case 4:
-            books[indexOfBook].genre = itemToReplaceWith;
-            break;
+        def = -1;
+    }
+    for (int i = 0; i < length; i++){
+        if (a[i] > b[i]) return 1;
+        else if (a[i] < b[i]) return -1;
+    }
+    return def;
+}
+
+void Swap(string arr[], int id[], int a, int b){
+    string temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
+
+    int tempB = id[a];
+    id[a] = id[b];
+    id[b] = tempB;
+}
+
+void Sort(string *arr, int id[], int size, int(*cmp)(string a, string b)){
+    //Selection Sort
+    for (int i = 0; i < size; i++)
+    {
+        int index = i;
+        for (int j = i + 1; j < size; j++)
+        {
+            if (cmp(arr[index], arr[j]) > 0) index = j;
+        }
+        Swap(arr, id, i, index);
     }
 }
 
-
-
+void SortById(Book *books, int id[], int item, int length)
+{
+    string *arr = new string[length];
+    switch(item)
+    {
+        case 1:
+            for (int i = 0; i < length; i++)
+            {
+                arr[i] += books[i].title;
+            }
+            break;
+        case 2:
+            for (int i = 0; i < length; i++)
+            {
+                arr[i] += books[i].author;
+            }
+            break;
+        case 3:
+            for (int i = 0; i < length; i++)
+            {
+                arr[i] += books[i].publisher;
+            }
+            break;
+        case 4:
+            for (int i = 0; i < length; i++)
+            {
+                arr[i] += books[i].genre;
+            }
+            break;
+    }
+    Sort(arr, id, length, Compare);
+    delete[] arr;
+}
 
 #pragma once
