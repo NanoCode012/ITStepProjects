@@ -66,22 +66,27 @@ void Copy(Person source, Person *dest, int index)
     dest[index].email = source.email;
 }
 
-/*
-void Resize(Person *person, int &capacity, int multiplier = 2)
+void Resize(Person *(&person), int &capacity, int multiplier = 2, bool copyPreviousData = true)
 {
     int size = capacity;
     capacity *= multiplier;
-    Person *newPerson = new Person[capacity];
-    for (int i = 0; i < size; i++)
+    Person *newPerson = (struct Person *)realloc(person, capacity * sizeof(Person));
+    if (!newPerson) 
     {
-        Copy(person, newPerson, i);
+        cout << "An error occurred while reallocating!" << endl;
+        exit(-1);
     }
-    person = &(*newPerson);
-    //Memory is wasted here because we dereferenced old pointer but did not delete it
+    if (copyPreviousData)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            Copy(person, newPerson, i);
+        }
+    }
+    person = newPerson;
 }
-*/
 
-void ReadFromFile(Person *person, int &size, int &capacity, string path)
+void ReadFromFile(Person *(&person), int &size, int &capacity, string path)
 {
     ifstream readStream(path);
     if (!readStream.is_open())
@@ -102,7 +107,7 @@ void ReadFromFile(Person *person, int &size, int &capacity, string path)
             {
                 capacity += (int)(temp[i] - '0') * Power(10, length - i - 1);
             }
-            // Resize(person, capacity, 1);
+            person = new Person[capacity];
             int k = 0;
             while (getline(readStream, temp)) 
             {
@@ -133,13 +138,11 @@ void WriteToFile(Person *person, int size, string path)
     writeStream.close();
 }
 
-
-
 void Add(Person *person, Person personToAdd, int &size, int &capacity)
 {
-    // if (size == capacity) Resize(person, capacity);
-    size++;
+    if (size == capacity) Resize(person, capacity);
     Copy(personToAdd, person, size);
+    size++;
 }
 
 bool Contains(string source, string key)

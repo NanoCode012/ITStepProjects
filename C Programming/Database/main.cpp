@@ -14,7 +14,7 @@ void SetValueToDefault(bool *arr, int size)
 }
 
 /*
-int Loading(){
+void Loading(){
     
     // string a = "✈";
     //string left = "▶";
@@ -53,15 +53,14 @@ int Loading(){
         }
     }
     system("clear");
-    return 0;
 }
 */
 
 int main(){
     int size = 0;
-    int capacity = 100;
+    int capacity = 3;
     string path = "./contact.txt";
-    Person *person = new Person[capacity];
+    Person *person = (struct Person*)malloc(capacity * sizeof(struct Person));
     //For adding new contact
     Person newPerson;
     //For general I/O
@@ -178,7 +177,6 @@ int main(){
                 cout << "Successfully saved to file!" << endl;
         }
     }
-    delete []person;
     delete []hasItem;
     return 0;
 }
