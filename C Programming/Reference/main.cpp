@@ -17,6 +17,10 @@ int &SetValue(int i){
     return month[i][1];
 }
 
+struct something {  
+    char a,b,c,d;
+    };
+
 int main(){
     int a = 5;
     int *addressA = &a;
@@ -43,6 +47,18 @@ int main(){
         cout << "Value at " << month[i][0] << " is " << SetValue(i) << endl;
     }
 
+    float fl = 2.54;
+    unsigned int* flb = (unsigned int*)&fl;
+    cout << "Value of flb is " << *flb << endl;
 
+    
+    something t;
+    t.a = 0;
+    t.b = 0;
+    t.c = 1;
+    t.d = 0;
+
+    int* qr = (int*)&t;
+    cout << "Value of qr is " << *qr << endl;
     return 0;
 }
