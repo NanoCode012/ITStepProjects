@@ -19,6 +19,7 @@ void Fraction::Add(Fraction other)
         numerator = (numerator * other.denominator) + (other.numerator * denominator);
         denominator *= other.denominator;
     }
+    Simplify();
 }
 
 void Fraction::Subtract(Fraction other)
@@ -32,21 +33,40 @@ void Fraction::Subtract(Fraction other)
         numerator = (numerator * other.denominator) - (other.numerator * denominator);
         denominator *= other.denominator;
     }
+    Simplify();
 }
 
 void Fraction::Multiply(Fraction other)
 {
     numerator *= other.numerator;
     denominator *= other.denominator;
+    Simplify();
 }
 
 void Fraction::Divide(Fraction other)
 {
     numerator *= other.denominator;
     denominator *= other.numerator;
+    Simplify();
 }
 
 void Fraction::Show()
 {
     cout << numerator << "/" << denominator << endl;
+}
+
+void Fraction::Simplify()
+{
+    int greatestCommonDivisor = GCD(numerator, denominator);
+    numerator /= greatestCommonDivisor;
+    denominator /= greatestCommonDivisor;
+}
+
+int GCD(int a, int b)
+{
+    if (b <= 0)
+    {
+        return a;
+    }
+    else return GCD(b, a % b);
 }

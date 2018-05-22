@@ -14,4 +14,7 @@ public:
     void Multiply(Fraction other);
     void Divide(Fraction other);
     void Show();
+    void Simplify();
 };
+
+int GCD(int a, int b);

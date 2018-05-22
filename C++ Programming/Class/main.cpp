@@ -36,5 +36,5 @@ int main()
     pointA.ShowCoordinates();
     // pointA.SaveCoordinatesToFileAtPath("Data.txt");
 
-
+    return 0;
 }
