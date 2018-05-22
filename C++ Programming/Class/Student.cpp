@@ -26,13 +26,13 @@ public:
 
     ~Student()
     {
-        cout << "Instance named " << *name << " is being destroyed" << endl;
+        cout << "Instance named " << name << " is being destroyed" << endl;
         delete[] name;
     }
 
     void Show()
     {
-        cout << "name : " << *name << endl
+        cout << "name : " << name << endl
              << "dob : " << dob << endl
              << "city : " << city << endl
              << "country : " << country << endl
