@@ -27,8 +27,8 @@ int main()
     Student john("john", "08/20/2019", "pp", "kh", "yi", "po", 4045, 2938);
     john.Show();
 
-    // Student *joshPointer = new Student("josh", "7/2/2012", "pp", "kh", "Nd", "kf", 2932, 3848);
-    // delete(joshPointer);//Need to delete ourself because we directly allocated memory
+    Student *joshPointer = new Student("hark", "7/2/2012", "pp", "kh", "Nd", "kf", 2932, 3848);
+    delete(joshPointer);//Need to delete ourself because we directly allocated memory
 
     //More Examples
     Point pointA(5, 3, 2);
