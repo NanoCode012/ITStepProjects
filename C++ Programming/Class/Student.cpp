@@ -11,9 +11,9 @@ private:
     int phoneNumber, trainingGroupNumber;
 
 public:
-    Student(char *name, string dob, string city, string country, string school, string schoolCity, int phoneNumber, int trainingGroupNumber)
+    Student(const char *name, string dob, string city, string country, string school, string schoolCity, int phoneNumber, int trainingGroupNumber)
     {
-        this->name = new char[strlen(name)];
+        this->name = new char[strlen(name) + 1];//+1 for terminator
         strcpy(this->name, name);
         this->dob = dob;
         this->city = city;
