@@ -36,5 +36,9 @@ int main()
     pointA.ShowCoordinates();
     // pointA.SaveCoordinatesToFileAtPath("Data.txt");
 
+    //Copy constructor
+    Point pointB = pointA;
+    pointB.ShowCoordinates();
+
     return 0;
 }

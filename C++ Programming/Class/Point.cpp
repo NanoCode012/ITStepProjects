@@ -25,6 +25,13 @@ Point::Point(int x, int y, int z)
     this->z = z;
 }
 
+Point::Point(const Point &p)
+{
+    this->x = p.x;
+    this->y = p.y;
+    this->z = p.z;
+}
+
 void Point::ShowCoordinates()
 {
     cout << "Point is at position ( " << x << ", " << y << ", " << z << " )" << endl;

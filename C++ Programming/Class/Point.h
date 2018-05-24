@@ -18,6 +18,7 @@ private:
 public:
     Point();
     Point(int x, int y, int z);
+    Point(const Point &p);
     void ShowCoordinates();
     inline int GetXCoordinate();
     inline int GetYCoordinate();
