@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.0)
+project("String")
+set(CMAKE_CXX_STANDARD 11)
+set(INC String.h)
+set(SRC String.cpp)
+set(SOURCE main.cpp ${INC} ${SRC})
+add_executable(${PROJECT_NAME} ${SOURCE})
