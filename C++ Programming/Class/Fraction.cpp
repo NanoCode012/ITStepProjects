@@ -58,8 +58,11 @@ void Fraction::Show()
 void Fraction::Simplify()
 {
     int greatestCommonDivisor = GCD(numerator, denominator);
-    numerator /= greatestCommonDivisor;
-    denominator /= greatestCommonDivisor;
+    if (greatestCommonDivisor > 0)
+    {
+        numerator /= greatestCommonDivisor;
+        denominator /= greatestCommonDivisor;
+    }
 }
 
 int GCD(int a, int b)
@@ -68,5 +71,5 @@ int GCD(int a, int b)
     {
         return a;
     }
-    else return GCD(b, a % b);
+    else return GCD(b, a - (b * (a / b)));
 }
