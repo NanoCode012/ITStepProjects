@@ -7,3 +7,8 @@ wchar_t* ConvertANSIToUnicode(const char * c)
     mbstowcs(ch, c, len);
     return ch;
 }
+
+const char* GetChar(const char * c)
+{
+    return c;
+}
