@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project("Unicode")
-set(SOURCE main.cpp)
+set(INC Tchar.h)
+set(SRC Tchar.cpp)
+set(SOURCE main.cpp ${INC} ${SRC})
 add_executable(${PROJECT_NAME} ${SOURCE})

@@ -1,14 +1,8 @@
-#include <string>
 #include <iostream>
+#include <string>
 
-// #define UNICODE
-// #ifdef UNICODE
-// #define TCHAR wchar_t
-// // #define TEXT(string num) L+num
-// #else 
-// #define TCHAR char
-// #define TEXT
-// #endif
+#define _UNICODE
+#include "Tchar.h"
 
 using namespace std;
 
@@ -24,10 +18,11 @@ int main()
     wcscpy(str, L"Good!");
     wcout << str << endl;
 
-    wcout << "Found at : " << wcschr(str, 'o') << endl;
+    wcout << "Found 'o'! The letters afterword are : " << wcschr(str, 'o') << endl;
     
     //My own
-    // TCHAR str2[50] = TEXT("Hi");
+    TCHAR str2 = TEXT("Hi");
+    OUT << str2 << endl;
     return 0;
 
 }
