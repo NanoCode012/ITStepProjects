@@ -20,5 +20,17 @@ int main()
     s4.Input("Let");
     s3.Output();
     s4.Output();
+
+    //Overloading Function
+    String s5("Hello");
+    String s6("el");
+    String s7 = s5 + s6;
+    s7.Output();
+
+    s7 = s5 - s6;
+    s7.Output();
+
+    s7 = s5 * s6;
+    s7.Output();
     return 0;
 }
