@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project("OverloadingOperator")
+set(INC A.h)
+set(SRC A.cpp)
+set(SOURCE main.cpp ${INC} ${SRC})
+add_executable(${PROJECT_NAME} ${SOURCE})
