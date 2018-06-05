@@ -23,6 +23,21 @@ Binary Binary::operator/(const Binary &other)
     return Binary(this->num / other.num);
 }
 
+int Binary::operator++()
+{
+    return (++this->num);
+}
+
+int Binary::operator++(int k)
+{
+    return (this->num++);
+}
+
+Binary::operator int()
+{
+    return ConvertToBinary(num);
+}
+
 void Binary::Print()
 {
     cout << ConvertToBinary(num) << endl;
