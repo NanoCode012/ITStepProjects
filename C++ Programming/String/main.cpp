@@ -30,7 +30,7 @@ int main()
     s7 = s5 - s6;
     s7.Output();
 
-    s7 = s5 * s6;
-    s7.Output();
+    // s7 = s5 * s6;
+    // s7.Output();
     return 0;
 }
