@@ -7,6 +7,8 @@ House::House(int capacity)
     this->capacity = capacity;
     occupancy = new bool[capacity];
     apartment = new Apartment[capacity];
+
+    for (int i = 0; i < capacity; i++) occupancy[i] = false;
 }
 
 House::House(const House &other)
@@ -16,25 +18,7 @@ House::House(const House &other)
 
 House::~House()
 {
-    if (occupancy != NULL)
-    {
-        cout << "Deleting House's occupancy" << endl;
-        delete[] occupancy;
-    }
-    else
-    {
-        cout << "House's occupancy is NULL" << endl;
-    }
-
-    if (apartment != NULL)
-    {
-        cout << "Deleting House's apartment" << endl;
-        delete[] apartment;
-    }
-    else
-    {
-        cout << "House's apartment is NULL" << endl;
-    }
+    Delete();
 }
 
 void House::operator=(const House &other)
@@ -53,6 +37,30 @@ void House::Copy(const House &other)
     {
         this->apartment[i] = other.apartment[i];
         this->occupancy[i] = other.occupancy[i];
+    }
+}
+
+void House::Delete()
+{
+    if (occupancy != NULL)
+    {
+        cout << "Deleting House's occupancy" << endl;
+        delete[] occupancy;
+    }
+    else
+    {
+        cout << "House's occupancy is NULL" << endl;
+    }
+
+    if (apartment != NULL)
+    {
+        cout << "Deleting House's apartment" << endl;
+        for(int i = 0; i < capacity; i++) apartment[i].Delete();
+        // delete[] apartment;
+    }
+    else
+    {
+        cout << "House's apartment is NULL" << endl;
     }
 }
 
@@ -86,6 +94,7 @@ void House::Add(int index, Man man)
     if (1 <= index && index <= capacity)
     {
         apartment[index - 1].Add(man);
+        SetFilledStatus(index);
     }
     else
     {
@@ -97,7 +106,7 @@ void House::Remove(int index, int indexMan)
 {
     if (1 <= index && index <= capacity)
     {
-        apartment[index - 1].Delete(indexMan);
+        apartment[index - 1].Remove(indexMan);
     }
     else
     {

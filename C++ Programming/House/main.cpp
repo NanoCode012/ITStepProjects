@@ -5,10 +5,15 @@ using namespace std;
 
 int main()
 {
-    cout << "called" << endl;
-    // House house(5);
-    // Man man("Horn", 12);
-    // house.Add(1, man);
-    // house.OutputAll();
+    House house(5);
+    Man man("Horn", 12);
+    
+    cout << "Adding man" << endl;
+    house.Add(1, man);
+    house.OutputAll();
+
+    cout << "Removing man at apartment 1" << endl;
+    house.Remove(1);
+    house.OutputAll();
     return 0;
 }

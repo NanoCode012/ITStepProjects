@@ -5,8 +5,10 @@ using namespace std;
 Apartment::Apartment(int capacity)
 {
     this->size = 0;
-    if (capacity > 0) this->capacity = capacity;
-    else this->capacity = 1;
+	if (capacity > 0) this->capacity = capacity;
+	else this->capacity = 1;
+
+	man = new Man[capacity];
 }
 
 Apartment::Apartment(const Apartment &other)
@@ -16,20 +18,17 @@ Apartment::Apartment(const Apartment &other)
 
 Apartment::~Apartment()
 {
-    if (man != NULL)
-    {
-        cout << "Deleting Apartment" << endl;
-        delete[] man;
-    }
-    else
-    {
-        cout << "Apartment's Man is already NULL" << endl;
-    }
+    Delete();
 }
 
 void Apartment::operator=(const Apartment &other)
 {
     Copy(other);
+}
+
+void Apartment::operator delete[](void *p)
+{
+    free(p);
 }
 
 void Apartment::Copy(const Apartment &other)
@@ -39,6 +38,20 @@ void Apartment::Copy(const Apartment &other)
     for(int i = 0; i < len; i++) 
     {
         this->man[i] = other.man[i];
+    }
+}
+
+void Apartment::Delete()
+{
+    if (man != NULL)
+    {
+        cout << "Deleting Apartment" << endl;
+        for(int i = 0; i < size; i++) man[i].Delete();
+        // delete[] man;
+    }
+    else
+    {
+        cout << "Apartment's Man is already NULL" << endl;
     }
 }
 
@@ -54,7 +67,7 @@ void Apartment::Add(Man newMan)
     }
 }
 
-void Apartment::Delete(int index)
+void Apartment::Remove(int index)
 {
     if (index == 1 || index == size) size--;
     else if (1 < index && index < size) 
@@ -86,10 +99,12 @@ void Apartment::OutputAll()
 {
     if (size > 0)
     {
+        cout << "Displaying Info about Man in apartment" << endl;
         for (int i = 0; i < size; i++)
         {
             Output(i + 1);
         }
+        cout << "End Display" << endl;
     }
 }
 

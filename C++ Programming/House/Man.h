@@ -18,8 +18,10 @@ public:
     ~Man();
 
     void operator=(const Man &other);
+    void operator delete[](void *p);
     
     void Copy(const Man &other);
+    void Delete();
     
     char* GetName();
     int GetAge();

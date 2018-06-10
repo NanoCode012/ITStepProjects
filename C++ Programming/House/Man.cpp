@@ -42,6 +42,27 @@ Man::Man(const Man &other)
 
 Man::~Man()
 {
+    Delete();
+}
+
+void Man::operator=(const Man &other)
+{
+    Copy(other);
+}
+
+void Man::operator delete[](void *p)
+{
+    free(p);
+}
+
+void Man::Copy(const Man &other)
+{
+    this->SetName(other.name);
+    this->SetAge(other.age);
+}
+
+void Man::Delete()
+{
     if (name != NULL) 
     {
         cout << "Man is being deleted" << endl;
@@ -51,17 +72,6 @@ Man::~Man()
     {
         cout << "Man's name is already NULL." << endl;
     }
-}
-
-void Man::operator=(const Man &other)
-{
-    Copy(other);
-}
-
-void Man::Copy(const Man &other)
-{
-    this->SetName(other.name);
-    this->SetAge(other.age);
 }
 
 char* Man::GetName()

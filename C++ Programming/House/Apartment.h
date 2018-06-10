@@ -15,11 +15,13 @@ public:
     ~Apartment();
 
     void operator=(const Apartment &other);
+    void operator delete[](void *p);
 
     void Copy(const Apartment &other);
+    void Delete();
     
     void Add(Man newMan);
-    void Delete(int index);
+    void Remove(int index);
     void Output(int index);
     void OutputAll();
     bool IsFull();
