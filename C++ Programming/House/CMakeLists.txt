@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project("House")
+set(INC Man.h Apartment.h House.h)
+set(SRC Man.cpp Apartment.cpp House.cpp)
+set(SOURCE main.cpp ${INC} ${SRC})
+add_executable(${PROJECT_NAME} ${SOURCE})
