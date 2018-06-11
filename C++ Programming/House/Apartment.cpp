@@ -18,17 +18,20 @@ Apartment::Apartment(const Apartment &other)
 
 Apartment::~Apartment()
 {
-    Delete();
+	if (man != NULL)
+	{
+		cout << "Deleting Apartment" << endl;
+		delete[] man;
+	}
+	else
+	{
+		cout << "Apartment's Man is already NULL" << endl;
+	}
 }
 
 void Apartment::operator=(const Apartment &other)
 {
     Copy(other);
-}
-
-void Apartment::operator delete[](void *p)
-{
-    free(p);
 }
 
 void Apartment::Copy(const Apartment &other)
@@ -41,25 +44,12 @@ void Apartment::Copy(const Apartment &other)
     }
 }
 
-void Apartment::Delete()
-{
-    if (man != NULL)
-    {
-        cout << "Deleting Apartment" << endl;
-        for(int i = 0; i < size; i++) man[i].Delete();
-        // delete[] man;
-    }
-    else
-    {
-        cout << "Apartment's Man is already NULL" << endl;
-    }
-}
-
 void Apartment::Add(Man newMan)
 {
     if (size < capacity)
     {
         this->man[size++] = newMan;
+		cout << "Success!" << endl;
     }
     else
     {
@@ -69,23 +59,39 @@ void Apartment::Add(Man newMan)
 
 void Apartment::Remove(int index)
 {
-    if (index == 1 || index == size) size--;
+    /*if (index == 1 || index == size) 
+	{
+		size--;
+		cout << "Success" << endl;
     else if (1 < index && index < size) 
     {
-        this->man[index - 1] = man[size - 1];
-        size--;
+        this->man[index - 1] = man[--size];
+		cout << "Success!" << endl;
     }
     else
     {
         cout << "Index not within range" << endl;
-    }
+    }*/
+	if (index < 1 || index > size)
+	{
+		cout << "Index not within range" << endl;
+	}
+	else
+	{
+		if (1 < index && index < size)
+		{
+			this->man[index - 1] = man[size - 1];
+		}
+		size--;
+		cout << "Success!" << endl;
+	}
 }
 
 void Apartment::Output(int index)
 {
     if (1 <= index && index <= size)
     {
-        cout << "Index : " << index                    << endl
+        cout << "ID : "    << index                    << endl
              << "Name  : " << man[index - 1].GetName() << endl
              << "Age   : " << man[index - 1].GetAge()  << endl;
     }

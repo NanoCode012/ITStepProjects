@@ -17,7 +17,6 @@ public:
     void operator=(const House &other);
 
     void Copy(const House &other);
-    void Delete();
 
     void SetFilledStatus(int index, bool isFilled = true);
     bool GetFilledStatus(int index);
