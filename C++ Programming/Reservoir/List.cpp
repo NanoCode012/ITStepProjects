@@ -1,8 +1,8 @@
-#include "LinkedList.h"
+#include "List.h"
 
 using namespace std;
 
-LinkedList::LinkedList(int capacity)
+List::List(int capacity)
 {
     this->size = 0;
     if (capacity > 0) this->capacity = capacity;
@@ -11,36 +11,36 @@ LinkedList::LinkedList(int capacity)
     reservoirs = (Reservoir *)(malloc(sizeof(Reservoir) * capacity));
 }
 
-LinkedList::~LinkedList()
+List::~List()
 {
     cout << "Deleting Linkedlist" << endl;
-    // free(reservoirs);//Might fail
+    free(reservoirs);//Might fail
 }
 
-LinkedList::LinkedList(const LinkedList &other) : LinkedList(other.capacity)
+List::List(const List &other) : List(other.capacity)
 {
-    for (int i = 0; i < capacity; i++)
+	this->size = other.size;
+    for (int i = 0; i < size; i++)
     {
         this->reservoirs[i] = other.reservoirs[i];
     }
 }
 
-void LinkedList::Insert(Reservoir r)
+void List::Insert(Reservoir r)
 {
-    if (size < capacity)
-    {
-        reservoirs[size] = r;
-        size++;
-    }
-    else
+    if (size >= capacity)
     {
         Resize();
     }
+    reservoirs[size] = r;
+    size++;
+
+	cout << "Success!" << endl;
 }
 
-void LinkedList::Delete(int index)
+void List::Remove(int index)
 {
-    if (index == 1 || index == size) size--;
+    /*if (index == 1 || index == size) size--;
     else if (1 < index && index < size)
     {
         reservoirs[index - 1] = reservoirs[size - 1];
@@ -49,16 +49,67 @@ void LinkedList::Delete(int index)
     else
     {
         cout << "Not within range" << endl;
-    }
+    }*/
+	if (index < 1 || index > size)
+	{
+		cout << "Index not within range" << endl;
+	}
+	else
+	{
+		if (1 < index && index < size)
+		{
+			this->reservoirs[index - 1] = reservoirs[size - 1];
+		}
+		size--;
+		cout << "Success!" << endl;
+	}
 }
 
-void LinkedList::Resize()
+void List::Resize()
 {
     capacity *= 2;
     reservoirs = (Reservoir*)(realloc(reservoirs, sizeof(Reservoir) * capacity));
 }
 
-void LinkedList::SaveToFile(const char* path, bool saveAsText)
+int List::GetVolume(int index)
+{
+	return reservoirs[index - 1].GetVolume();
+}
+
+int List::GetSurfaceArea(int index)
+{
+	return reservoirs[index - 1].GetSurfaceArea();
+}
+
+int List::GetType(int index)
+{
+	return reservoirs[index - 1].GetType();
+}
+
+int List::GetSize()
+{
+	return size;
+}
+
+void List::Output(int index)
+{
+	if (1 <= index && index <= size)
+	{
+		cout << "Index : " << index << endl;
+		reservoirs[index - 1].Output();
+	}
+	else cout << "Index not within range" << endl;
+}
+
+void List::OutputAll()
+{
+	for (int i = 1; i <= size; i++)
+	{
+		Output(i);
+	}
+}
+
+void List::SaveToFile(const char* path, bool saveAsText)
 {
     ofstream writeStream(path);
 
@@ -85,6 +136,8 @@ void LinkedList::SaveToFile(const char* path, bool saveAsText)
 
         _itoa(reservoirs[i].GetType(), buffer, base);
         writeStream << buffer << " ";
+
+		writeStream << endl;
     }
 
     writeStream.close();

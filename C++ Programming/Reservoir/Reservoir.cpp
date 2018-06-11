@@ -28,22 +28,26 @@ Reservoir::Reservoir(const Reservoir &other) : Reservoir(other.name, other.width
 
 void Reservoir::SetWidth(int num)
 {
-    width = num;
+    if (num > 0) width = num;
+	else cout << "Invalid Input" << endl;
 }
 
 void Reservoir::SetHeight(int num)
 {
-    height = num;
+	if (num > 0) height = num;
+	else cout << "Invalid Input" << endl;
 }
 
 void Reservoir::SetDepth(int num)
 {
-    depth = num;
+	if (num > 0) depth = num;
+	else cout << "Invalid Input" << endl;
 }
 
 void Reservoir::SetType(int type)
 {
     if (type == 0 || type == 1) this->type = type;
+	else cout << "Invalid Input" << endl;
 }
 
 int Reservoir::GetWidth()

@@ -5,21 +5,29 @@
 #include <fstream>
 #include <stdlib.h>
 
-class LinkedList
+class List
 {
 private:
     Reservoir* reservoirs;
     int size;
     int capacity;
 public:
-    LinkedList(int capacity = 10);
-    ~LinkedList();
+    List(int capacity = 10);
+    ~List();
 
-    LinkedList(const LinkedList &other);
+    List(const List &other);
 
     void Insert(Reservoir r);
-    void Delete(int index);
+    void Remove(int index);
     void Resize();
+
+	int GetVolume(int index);
+	int GetSurfaceArea(int index);
+	int GetType(int index);
+	int GetSize();
+
+	void Output(int index);
+	void OutputAll();
 
     void SaveToFile(const char* path = "Data.txt", bool saveAsText = true);
 };
