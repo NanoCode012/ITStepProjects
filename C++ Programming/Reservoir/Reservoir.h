@@ -21,9 +21,13 @@ public:
     void SetDepth(int num);
     void SetType(int type = 0);//0 = sea, 1 = pond
 
+    int GetWidth();
+    int GetHeight();
+    int GetDepth();
+    int GetType();
+    
     int GetVolume();
     int GetSurfaceArea();
-    int GetType();
 
     bool CheckIfSame(Reservoir &other);
 

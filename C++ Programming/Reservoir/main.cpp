@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Reservoir.h"
+#include "LinkedList.h"
 
 using namespace std;
 
@@ -10,5 +10,9 @@ int main()
 
     cout << r.GetVolume() << endl;
     cout << (r.CheckIfSame(r2) ? "true" : "false") << endl;
+
+    LinkedList l(5);
+    l.Insert(r);
+    l.SaveToFile("Data.bin", false);
     return 0;
 }

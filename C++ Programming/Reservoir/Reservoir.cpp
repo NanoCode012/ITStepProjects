@@ -46,6 +46,26 @@ void Reservoir::SetType(int type)
     if (type == 0 || type == 1) this->type = type;
 }
 
+int Reservoir::GetWidth()
+{
+    return width;
+}
+
+int Reservoir::GetHeight()
+{
+    return height;
+}
+
+int Reservoir::GetDepth()
+{
+    return depth;
+}
+
+int Reservoir::GetType()
+{
+    return type;
+}
+
 int Reservoir::GetVolume()
 {
     return (width * height * depth);
@@ -54,11 +74,6 @@ int Reservoir::GetVolume()
 int Reservoir::GetSurfaceArea()
 {
     return (width * height);
-}
-
-int Reservoir::GetType()
-{
-    return type;
 }
 
 bool Reservoir::CheckIfSame(Reservoir &other)
