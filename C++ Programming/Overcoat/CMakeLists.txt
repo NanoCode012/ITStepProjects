@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project("Overcoat")
+set(INC Overcoat.h)
+set(SRC Overcoat.cpp)
+set(SOURCE main.cpp ${INC} ${SRC})
+add_executable(${PROJECT_NAME} ${SOURCE})
