@@ -86,12 +86,12 @@ Fraction Fraction::Divide(Fraction other)
 
 Fraction Fraction::Simplify(int num, int denom)
 {
-    int greatestCommonDivisor = GCD(numerator, denominator);
+    int greatestCommonDivisor = GCD(num, denom);
     
-    int tempNum = numerator;
-    int tempDenom = denominator;
+    int tempNum = num;
+    int tempDenom = denom;
 
-    if (greatestCommonDivisor > 0)
+    if (greatestCommonDivisor > 1)
     {
         tempNum /= greatestCommonDivisor;
         tempDenom /= greatestCommonDivisor;
