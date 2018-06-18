@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project("Complex")
+set(INC Complex.h Fraction.h)
+set(SRC Complex.cpp Fraction.cpp)
+set(SOURCE main.cpp ${INC} ${SRC})
+add_executable(${PROJECT_NAME} ${SOURCE})
