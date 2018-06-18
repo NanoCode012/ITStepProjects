@@ -8,7 +8,7 @@ private:
     int numerator;
     int denominator;
 public:
-    Fraction(int num, int denom);
+    Fraction(int num = 0, int denom = 1);
     Fraction(const Fraction &other);
 
     Fraction operator + (const Fraction &other);
@@ -25,6 +25,8 @@ public:
     Fraction Divide(Fraction other);
 
     Fraction Simplify(int num, int denom);
+
+    int Compare(int num);
 
     void Show();
 };

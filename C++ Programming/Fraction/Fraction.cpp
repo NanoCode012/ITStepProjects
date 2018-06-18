@@ -97,12 +97,32 @@ Fraction Fraction::Simplify(int num, int denom)
         tempDenom /= greatestCommonDivisor;
     }
 
+	//Simplify the negatives
+	if ((tempNum < 0 && tempDenom < 0) || (tempNum > 0 && tempDenom < 0))
+	{
+		tempNum *= -1;
+		tempDenom *= -1;
+	}
     return Fraction(tempNum, tempDenom);
+}
+
+int Fraction::Compare(int num)
+{
+    if (numerator > num) return 1;
+    else if (numerator == num) return 0;
+    else return -1;
 }
 
 void Fraction::Show()
 {
-    cout << numerator << "/" << denominator << endl;
+	if (denominator != 1)
+	{
+		cout << numerator << "/" << denominator;
+	}
+	else
+	{
+		cout << numerator;
+	}
 }
 
 int GCD(int a, int b)
