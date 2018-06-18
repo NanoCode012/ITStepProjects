@@ -97,8 +97,7 @@ Fraction Fraction::Simplify(int num, int denom)
         tempDenom /= greatestCommonDivisor;
     }
 
-    Fraction f(tempNum, tempDenom);
-    return f;
+    return Fraction(tempNum, tempDenom);
 }
 
 void Fraction::Show()
