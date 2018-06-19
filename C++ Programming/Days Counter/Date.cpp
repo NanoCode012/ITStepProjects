@@ -95,10 +95,16 @@ Date Date::operator+ (int daysToAdd)
 
     while(daysToAdd > 0)
     {
-        if (daysToAdd > (month[m1 - 1] - d1))
+        if (m1 == 2 && m1 % 4 == 0 && m1 % 100 != 0 && daysToAdd > (month[m1 - 1] - d1 + 1))//Leap year
         {
-			daysToAdd -= (month[m1 - 1] - d1 + 1);
-			d1 = 1;
+            daysToAdd -= (month[m1 - 1] - d1 + 1);
+            d1 = 1;
+            m1++;
+        }
+        else if (daysToAdd > (month[m1 - 1] - d1))
+        {
+            daysToAdd -= (month[m1 - 1] - d1 + 1);
+            d1 = 1;
             if (m1 == 12)
             {
                 y1++;
