@@ -60,8 +60,8 @@ int main(){
         }else {
             sumDays += month[m0 - 1] - d0;
             sumDays += d1;
+            if(m0 == 1 && y0 % 4 == 0 & y0 % 100 != 0) sumDays++;
             for(int i = m0; i < m1 - 1; i++){
-                if(m0 == 1 && y0 % 4 == 0 & y0 % 100 != 0) sumDays++;
                 sumDays += month[i];
             }
         }
