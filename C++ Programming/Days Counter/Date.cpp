@@ -139,3 +139,19 @@ void Date::Output()
 {
     cout << day << "-" << month << "-" << year << endl;
 }
+
+int Date::GetDay()
+{
+    return day;
+}
+
+int Date::GetMonth()
+{
+    return month;
+}
+
+int Date::GetYear()
+{
+    return year;
+}
+    

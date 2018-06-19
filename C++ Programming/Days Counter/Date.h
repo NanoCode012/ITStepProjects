@@ -18,4 +18,8 @@ public:
     void operator += (int daysToAdd);
 
     void Output();
+
+    int GetDay();
+    int GetMonth();
+    int GetYear();
 };
