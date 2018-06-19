@@ -125,6 +125,16 @@ void Date::operator = (const Date &other)
     this->year = other.year;
 }
 
+void Date::operator+= (int daysToAdd)
+{
+    Date temp(this->day, this->month, this->year);
+    temp = temp + daysToAdd;
+
+    this->day = temp.day;
+    this->month = temp.month;
+    this->year = temp.year;
+}
+
 void Date::Output()
 {
     cout << day << "-" << month << "-" << year << endl;

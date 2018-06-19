@@ -14,8 +14,8 @@ public:
     int operator - (const Date &other);
 
     Date operator + (int daysToAdd);
-
     void operator = (const Date &other);
+    void operator += (int daysToAdd);
 
     void Output();
 };
