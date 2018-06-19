@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project("DaysCounter")
+set (INC Date.h)
+set(SRC Date.cpp)
+set(SOURCE main.cpp ${INC} ${SRC})
+add_executable(${PROJECT_NAME} ${SOURCE})
