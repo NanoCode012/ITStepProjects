@@ -119,19 +119,19 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	CreateWindowEx(0, TEXT("STATIC"), TEXT("FROM"), WS_CHILD | WS_VISIBLE, 80, 10, 50, 20, hWnd, NULL, hInst, NULL);
 	CreateWindowEx(0, TEXT("STATIC"), TEXT("TO"), WS_CHILD | WS_VISIBLE, 140, 10, 50, 20, hWnd, NULL, hInst, NULL);
 
-	hDay1 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE, 80, 30, 50, 20, hWnd, NULL, hInst, NULL);
-	hMon1 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE, 80, 50, 50, 20, hWnd, NULL, hInst, NULL);
-	hYear1 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE, 80, 70, 50, 20, hWnd, NULL, hInst, NULL);
+	hDay1 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE | WS_BORDER, 80, 30, 50, 20, hWnd, NULL, hInst, NULL);
+	hMon1 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE | WS_BORDER, 80, 50, 50, 20, hWnd, NULL, hInst, NULL);
+	hYear1 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE | WS_BORDER, 80, 70, 50, 20, hWnd, NULL, hInst, NULL);
 
-	hDay2 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE, 140, 30, 50, 20, hWnd, NULL, hInst, NULL);
-	hMon2 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE, 140, 50, 50, 20, hWnd, NULL, hInst, NULL);
-	hYear2 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE, 140, 70, 70, 20, hWnd, NULL, hInst, NULL);
+	hDay2 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE | WS_BORDER, 140, 30, 50, 20, hWnd, NULL, hInst, NULL);
+	hMon2 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE | WS_BORDER, 140, 50, 50, 20, hWnd, NULL, hInst, NULL);
+	hYear2 = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE | WS_BORDER, 140, 70, 50, 20, hWnd, NULL, hInst, NULL);
 
 	CreateWindowEx(0, TEXT("STATIC"), TEXT("+ DAYS"), WS_CHILD | WS_VISIBLE, 20, 100, 50, 20, hWnd, NULL, hInst, NULL);
-	hDaysToAdd = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE, 80, 100, 50, 20, hWnd, NULL, hInst, NULL);
+	hDaysToAdd = CreateWindowEx(0, TEXT("EDIT"), TEXT("--"), WS_CHILD | WS_VISIBLE | WS_BORDER, 80, 100, 50, 20, hWnd, NULL, hInst, NULL);
 
 	CreateWindowEx(0, TEXT("STATIC"), TEXT("ANS"), WS_CHILD | WS_VISIBLE, 20, 130, 50, 20, hWnd, NULL, hInst, NULL);
-	hRes = CreateWindowEx(0, TEXT("EDIT"), TEXT("=="), WS_CHILD | WS_VISIBLE, 80, 130, 75, 20, hWnd, NULL, hInst, NULL);
+	hRes = CreateWindowEx(0, TEXT("EDIT"), TEXT("=="), WS_CHILD | WS_VISIBLE | WS_BORDER, 80, 130, 75, 20, hWnd, NULL, hInst, NULL);
 
 	hButtonGetDifference = CreateWindowEx(0, TEXT("BUTTON"), TEXT("SHOW ME THE MAGIC!"), WS_CHILD | WS_VISIBLE, 200, 200, 160, 50, hWnd, (HMENU)1, hInst, NULL);
 	hButtonGetNewDate = CreateWindowEx(0, TEXT("BUTTON"), TEXT("WAZZAM!"), WS_CHILD | WS_VISIBLE, 200, 300, 150, 50, hWnd, (HMENU)2, hInst, NULL);
