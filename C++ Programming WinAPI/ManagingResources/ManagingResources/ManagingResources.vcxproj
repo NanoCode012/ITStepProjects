@@ -165,14 +165,12 @@
     <ResourceCompile Include="ManagingResources.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\..\..\Pyxel Edit\ITStepProject\Cursor.png" />
     <Image Include="icon1.ico" />
     <Image Include="ManagingResources.ico" />
     <Image Include="pirate_icon_RW5_icon.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Cursor.cur" />
     <None Include="cursor1.cur" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
