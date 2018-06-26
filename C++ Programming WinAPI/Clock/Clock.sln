@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Clock", "Clock\Clock.vcxproj", "{5905D375-1BC2-4A2F-9D3E-2D9392606D93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Debug|x64.ActiveCfg = Debug|x64
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Debug|x64.Build.0 = Debug|x64
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Debug|x86.ActiveCfg = Debug|Win32
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Debug|x86.Build.0 = Debug|Win32
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Release|x64.ActiveCfg = Release|x64
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Release|x64.Build.0 = Release|x64
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Release|x86.ActiveCfg = Release|Win32
+		{5905D375-1BC2-4A2F-9D3E-2D9392606D93}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {634C9746-C382-47AD-B5F9-72CE4416F4F5}
+	EndGlobalSection
+EndGlobal
