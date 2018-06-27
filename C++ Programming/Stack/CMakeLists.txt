@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0)
+project("Stack")
+set(INC Stack.h Node.h)
+set(SRC Stack.cpp Node.cpp)
+set(SOURCE main.cpp ${SRC} ${INC})
+add_executable(${PROJECT_NAME} ${SOURCE})
