@@ -57,12 +57,16 @@ void ConvertToDecimal(int num, int base)
 int main(){
     int num;
     int base;
+    
     cout << "Please enter num : ";
     cin >> num;
     cout << "Please enter base : ";
     cin >> base;
+    
+    cout << "From base 10 to base "<< base << " : ";
+    ConvertFromDecimal(num, base);
+    
+    cout << "From base " << base << " to base 10 : ";
     ConvertToDecimal(num, base);
-    
-    
     return 0;
 }
