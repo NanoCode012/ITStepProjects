@@ -12,5 +12,7 @@ a culinary dish
 --
 the act of being accompanied by another
 --
-a black-white striped animal
+a color
+--
+a striped animal
 --

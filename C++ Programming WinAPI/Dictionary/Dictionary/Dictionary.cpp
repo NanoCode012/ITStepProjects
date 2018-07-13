@@ -143,14 +143,28 @@ void Dictionary::SaveToFile(const char * keyPath, const char * definitionPath)
 	fout.close();
 }
 
-void Dictionary::SetTitle(const TCHAR * c, int index)
+void Dictionary::SetTitle(const TCHAR * c, int index, bool isSortedIndex)
 {
-	words[index].SetTitle(c);
+	if (!isSortedIndex)
+	{
+		words[index].SetTitle(c);
+	}
+	else
+	{
+		words[sortID[index]].SetTitle(c);
+	}
 }
 
-void Dictionary::SetDefinition(const TCHAR * c, int index)
+void Dictionary::SetDefinition(const TCHAR * c, int index, bool isSortedIndex)
 {
-	words[index].SetDefinition(c);
+	if (!isSortedIndex)
+	{
+		words[index].SetDefinition(c);
+	}
+	else
+	{
+		words[sortID[index]].SetDefinition(c);
+	}
 }
 
 TCHAR * Dictionary::GetTitle(int index, bool isSorted)
